@@ -4,4 +4,25 @@
   font-family: "Merriweather", serif;
   font-style: normal;
 }
+.meal_anime{
+  animation: meal_anime 1s infinite alternate ease-in-out;
+}
+@keyframes meal_anime{
+  from{
+    transform:  translateY(0px);
+  }
+  to{
+    transform:  translateY(8px);
+  }
+}
 
+.crt_scroll {
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; 
+  scrollbar-color: transparent transparent;
+}
+
+.red_boxsh{
+  box-shadow: .2px .2px 5px 0px red;
+}
