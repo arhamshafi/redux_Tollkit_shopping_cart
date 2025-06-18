@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import { UtensilsCrossed } from 'lucide-react';
 import { toogle_sidebar } from './Features/Cart_reducer';
 import { useSelector, useDispatch } from 'react-redux';
+import Header from './Header';
 
 function App() {
   let side_bar = useSelector((state) => state.cart.sidebar)
@@ -10,7 +11,7 @@ function App() {
   return (
     <div className='w-full py-4 px-20 bg-white'>
       <Navbar />
-      
+      <Header/>
       
           <div className={`fixed top-0 right-0 bg-black/30 w-full transition-all duration-300 ease-linear h-screen ${side_bar ? "opacity-100 visible" : "opacity-0 invisible"} `} onClick={() => dispatch(toogle_sidebar())}></div>
           <div className={`fixed w-[350px] p-4  h-screen bg-black transition-all duration-300 ease-in-out top-0 z-10 ${side_bar ? "right-0" : "right-[-355px]"} `}>

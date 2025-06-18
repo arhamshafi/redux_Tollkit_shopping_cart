@@ -4,25 +4,66 @@
   font-family: "Merriweather", serif;
   font-style: normal;
 }
-.meal_anime{
+
+.meal_anime {
   animation: meal_anime 1s infinite alternate ease-in-out;
 }
-@keyframes meal_anime{
-  from{
-    transform:  translateY(0px);
+
+@keyframes meal_anime {
+  from {
+    transform: translateY(0px);
   }
-  to{
-    transform:  translateY(8px);
+
+  to {
+    transform: translateY(8px);
   }
 }
 
 .crt_scroll {
   overflow-y: auto;
   scroll-behavior: smooth;
-  scrollbar-width: none; 
+  scrollbar-width: none;
   scrollbar-color: transparent transparent;
 }
 
-.red_boxsh{
+.red_boxsh {
   box-shadow: .2px .2px 5px 0px red;
+}
+
+.chef {
+  animation: chef 1s ease-in-out infinite alternate;
+}
+
+@keyframes chef {
+  from {
+    transform: translateX(0px);
+  }
+
+  to {
+    transform: translateX(5px);
+  }
+}
+.chef2 {
+  animation: chef2 1s ease-in-out infinite alternate;
+}
+
+@keyframes chef2 {
+  from {
+    transform: translateX(5px);
+  }
+
+  to {
+    transform: translateX(0px);
+  }
+}
+.up_down{
+  animation: up_down 1s infinite alternate ease-in-out;
+}
+@keyframes up_down{
+  from{
+    transform: translateY(0);
+  }
+  to{
+    transform: translateY(5px);
+  }
 }
