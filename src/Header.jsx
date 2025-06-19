@@ -47,33 +47,40 @@ function Header() {
     }
 
     return (
-        <div className='w-full'>
-            <div className='w-[900px] h-[900px] rounded-full fixed top-[-115px] flex justify-center items-center right-[-23%] border-2 border-dashed border-black/20'>
+        <div className='w-full '>
+            <div className='w-[800px] h-[800px] scale-80 dish xl:w-[900px] xl:h-[900px] rounded-full fixed top-[-10%] xl:top-[-35%] flex justify-center items-center right-[-30%] xl:right-[-28%] border-2 border-dashed border-black/20'>
                 {data && data.map(((ele, idx) => {
                     return (
-                        <div key={idx} className={`w-[130px] active:scale-90 flex justify-center items-center grey_sh h-[130px] absolute rounded-full hover:bg-red-700 transition-all duration-150 ease-in cursor-pointer opt_div z-20 ${opt.index == idx ? "bg-red-700" : "bg-white"} `} onClick={() => active(ele, idx)}>
-                            <img className={`w-full scale-80 `} src={ele.img} alt="" /> </div>
+                        <div key={idx} className={`w-[130px] active:scale-90 flex justify-center items-center grey_sh h-[130px] absolute rounded-full hover:bg-red-700 transition-all duration-150 ease-in cursor-pointer opt_div z-20 ${opt.index == idx ? "bg-red-700" : "bg-gray-100"} `} onClick={() => active(ele, idx)}>
+                            <img className={`w-full scale-80`} src={ele.img} alt="" /></div>
                     )
                 }))}
+
                 <div className='w-[80%] h-[80%] flex items-center relative '>
                     <div className=' rounded-full w-full h-full rot absolute bg-black left bg-no-repeat bg-center bg-contain blackboxsh'
                         style={{ backgroundImage: `url(${cabbage})`, backgroundPositionX: "30px", backgroundRepeat: "no-repeat", backgroundSize: "cover" }} ></div>
-                    <img className={` transition-all duration-200 ease-in-out ${anime2 ? "rotate-0 opacity-100 scale-100 translate-x-0" : "rotate-90 opacity-0 scale-80 translate-x-50"}  w-[420px] ml-20 up_down2`} src={opt.img} alt="" />
+                    <img className={` transition-all duration-200 ease-in-out ${anime2 ? "rotate-0 opacity-100 scale-100 translate-x-0" : "rotate-90 opacity-0 scale-80 translate-x-50"}  w-[250px] xl:w-[400px] ml-20 xl:ml-10 mt-20 up_down2`} src={opt.img} alt="" />
                 </div>
             </div>
             <Navbar />
-            <div className={`w-[700px] mt-30 flex flex-col gap-5 justify-center pl-20     `} >
-                <h1 className={` transition-all duration-200 ease-in-out ${anim ? "opacity-100 translate-y-0 " : "opacity-0 -translate-y-10"} text-3xl font-bold`}> {opt.name} </h1>
-                <h1 className={` transition-all duration-200 ease-in-out ${anime2 ? "opacity-100 translate-x-0 " : "opacity-0 -translate-x-10"} text-3xl font-bold text-red-600`}>{opt.price} $</h1>
+
+            <div className={`h_p1 w-[700px] h-[610px] border flex flex-col gap-7 justify-center pl-10  transition-all duration-150 ease-linear relative  `} >
+                <div className="absolute top-25 left-10 ui_text text-xl tt tracking-[0.2em] text-black select-none  uppercase">
+                    Designed with <span className="text-red-600 rt font-bold">UX&nbsp;|&nbsp;ARHAM</span>
+                </div>
+                <h1 className={` transition-all duration-200 ease-in-out ${anim ? "opacity-100 translate-y-0 " : "opacity-0 -translate-y-10"} text-3xl font-bold tt`}> {opt.name} </h1>
+                <h1 className={` transition-all duration-200 ease-in-out ${anime2 ? "opacity-100 translate-x-0 " : "opacity-0 -translate-x-10"} text-3xl font-bold text-red-600 rt`}>{opt.price} $</h1>
                 <p className={` transition-all duration-200 ease-in-out ${anime2 ? "opacity-100 translate-x-0 " : "opacity-0 -translate-x-10"} text-md text-black/60`}>{opt.info}</p>
                 <button className={`py-2 px-4 w-max bg-black rounded-xl text-white text-xl border border-transparent transition-all duration-200 ease-in hover:bg-white hover:border-black hover:text-black active:scale-95 cursor-pointer ${anime2 ? "opacity-100 translate-y-0 " : "opacity-0 translate-y-10"} `}>Order Now</button>
+
+                <div className='m-0 h-max absolute w-max bottom-15 left-10'>
+                    <div className='w-[100px] h-[2px] mt-15 bg-black/50 inline-block -translate-y-1'></div> <p className='text-black inline-block font-bold'>Stay Healthy</p>
+                </div>
+                <div className='h-max w-max mt-[-30px] absolute bottom-5 left-50 '>
+                    <p className='text-black inline-block font-bold'>Stay Safe</p> <div className='w-[100px] h-[2px] mt-15 bg-black/50 inline-block -translate-y-1'></div>
+                </div>
             </div>
-            <div className='m-0 h-max w-max pl-20'>
-                <div className='w-[100px] h-[2px] mt-15 bg-black/50 inline-block -translate-y-1'></div> <p className='text-black inline-block font-bold'>Stay Healthy</p>
-            </div>
-            <div className='pl-65 h-max w-max mt-[-30px]'>
-                <p className='text-black inline-block font-bold'>Stay Safe</p> <div className='w-[100px] h-[2px] mt-15 bg-black/50 inline-block -translate-y-1'></div>
-            </div>
+
         </div>
     )
 }

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 let initialState = {
     sidebar: false,
-    cart: [],
+    items: [],
     total_amount: 0
 }
 
