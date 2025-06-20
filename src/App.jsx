@@ -14,7 +14,7 @@ function App() {
   let dispatch = useDispatch()
   return (
     <div className='w-full py-3 bg-white select-none'>
-      
+
       <Header />
 
       <div className={`fixed top-0 right-0 bg-black/30 w-full transition-all duration-300 ease-linear h-screen z-20 ${side_bar ? "opacity-100 visible" : "opacity-0 invisible"} `} onClick={() => dispatch(toogle_sidebar())}></div>
