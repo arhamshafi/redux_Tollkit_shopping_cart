@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { UtensilsCrossed, ScrollText } from 'lucide-react';
+import { UtensilsCrossed, ScrollText , Plus , Minus} from 'lucide-react';
 import { toogle_sidebar } from './Features/Cart_reducer';
 import { useSelector, useDispatch } from 'react-redux';
 import { Canvas } from '@react-three/fiber'
@@ -55,14 +55,28 @@ function App() {
             <>
               <div className='flex select-none cursor-context-menu meal_anime items-center justify-center relative'>
                 <div className='text-6xl text-white mt-3 text-center flex items-center justify-center gap-1'> 🍽   <p className='text-3xl'>🍹</p> </div>
-                <p className='absolute text-3xl left-[37.3%] top-[35%]'>🍔</p>
+                <p className='absolute text-3xl left-[39%] top-[35%]'>🍔</p>
 
               </div>
 
-              <div className='w-full h-[350px] crt_scroll mt-10 border text-white'>
-
+              <div className='w-full h-[350px] py-1 px-3 crt_scroll mt-10 text-white'>
+                  <div className='w-full h-[90px] bg-white/20 rounded-lg mt-3 flex justify-evenly items-center'>
+                    <div className='w-[70px] h-[70px] border rounded-lg overflow-hidden'> <img className='w-full h-full' src="" alt="" /> </div>
+                    <div className='w-[200px] h-[80px] rounded-lg'>
+                      <h1 className='text-white text-md '>Name</h1>
+                      <p className='text-green-500 text-sm mt-1'>Price</p>
+                      <div className='w-max flex justify-center items-center gap-2 mt-1'>
+                            <Minus size={18} className='cursor-pointer text-white' />
+                              <p>23</p>                            
+                            <Plus size={18} className='cursor-pointer text-white' />
+                      </div>
+                    </div>
+                  </div>
               </div>
-              <div className='w-full h-[70px] bg-red-700 red_boxsh rounded-2xl mt-8'></div>
+              <div className='w-full h-[70px] bg-red-700 red_boxsh rounded-2xl mt-8 flex px-5 justify-between items-center'>
+                  <h1 className='text-xl text-white font-bold tracking-[1px]'>Total Bill :-</h1>
+                  <p className='text-md text-yellow-400 '>1203-8</p>
+              </div>
 
             </>
           )}

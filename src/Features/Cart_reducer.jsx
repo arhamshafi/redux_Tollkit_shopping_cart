@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 let initialState = {
     sidebar: false,
-    items: [],
+    items: ["we"],
     total_amount: 0
 }
 
