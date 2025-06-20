@@ -17,8 +17,8 @@ function App() {
       
       <Header />
 
-      <div className={`fixed top-0 right-0 bg-black/30 w-full transition-all duration-300 ease-linear h-screen ${side_bar ? "opacity-100 visible" : "opacity-0 invisible"} `} onClick={() => dispatch(toogle_sidebar())}></div>
-      <div className={`fixed w-[400px] p-4  h-screen bg-black transition-all duration-400 ease-in-out top-0 z-10 ${side_bar ? "right-0" : "right-[-405px]"} `}>
+      <div className={`fixed top-0 right-0 bg-black/30 w-full transition-all duration-300 ease-linear h-screen z-20 ${side_bar ? "opacity-100 visible" : "opacity-0 invisible"} `} onClick={() => dispatch(toogle_sidebar())}></div>
+      <div className={`fixed w-[400px] p-4  h-screen bg-black transition-all duration-400 ease-in-out top-0 z-20 ${side_bar ? "right-0" : "right-[-405px]"} `}>
         <UtensilsCrossed strokeWidth={2} className='absolute top-4 active:scale-95 hover:text-red-500 transition-all duration-100 cursor-pointer right-4 text-white' onClick={() => dispatch(toogle_sidebar())} />
         <h1 className='text-white font-bold tracking-[2px] text-xl select-none'>Your Order :-  </h1>
 

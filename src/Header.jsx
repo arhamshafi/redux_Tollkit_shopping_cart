@@ -59,16 +59,16 @@ function Header() {
                 <div className='w-[80%] h-[80%] flex items-center relative '>
                     <div className=' rounded-full w-full h-full rot absolute bg-black left bg-no-repeat bg-center bg-contain blackboxsh'
                         style={{ backgroundImage: `url(${cabbage})`, backgroundPositionX: "30px", backgroundRepeat: "no-repeat", backgroundSize: "cover" }} ></div>
-                    <img className={` transition-all duration-200 ease-in-out ${anime2 ? "rotate-0 opacity-100 scale-100 translate-x-0" : "rotate-90 opacity-0 scale-80 translate-x-50"}  w-[250px] xl:w-[400px] ml-20 xl:ml-10 mt-20 up_down2`} src={opt.img} alt="" />
+                    <img className={` transition-all duration-200 ease-in-out ${anime2 ? "rotate-0 opacity-100 scale-100 translate-x-0" : "rotate-90 opacity-0 scale-80 translate-x-50"} w-[280px] xl:w-[380px] ml-23 xl:ml-10 mt-10 xl:mt-20 up_down2`} src={opt.img} alt="" />
                 </div>
             </div>
             <Navbar />
 
-            <div className={`h_p1 w-[700px] h-[610px] border flex flex-col gap-7 justify-center pl-10  transition-all duration-150 ease-linear relative  `} >
-                <div className="absolute top-25 left-10 ui_text text-xl tt tracking-[0.2em] text-black select-none  uppercase">
+            <div className={`h_p1 w-[700px] h-[580px] xl:h-[610px] flex flex-col gap-5 xl:gap-7 justify-center pl-10 transition-all duration-150 ease-linear relative  `} >
+                <div className="absolute top-27 left-10 ui_text text-xl tt tracking-[0.2em] text-black select-none  uppercase">
                     Designed with <span className="text-red-600 rt font-bold">UX&nbsp;|&nbsp;ARHAM</span>
                 </div>
-                <h1 className={` transition-all duration-200 ease-in-out ${anim ? "opacity-100 translate-y-0 " : "opacity-0 -translate-y-10"} text-3xl font-bold tt`}> {opt.name} </h1>
+                <h1 className={` transition-all duration-200 ease-in-out ${anim ? "opacity-100 translate-y-0 " : "opacity-0 -translate-y-10"} mt-10 text-3xl font-bold tt`}> {opt.name} </h1>
                 <h1 className={` transition-all duration-200 ease-in-out ${anime2 ? "opacity-100 translate-x-0 " : "opacity-0 -translate-x-10"} text-3xl font-bold text-red-600 rt`}>{opt.price} $</h1>
                 <p className={` transition-all duration-200 ease-in-out ${anime2 ? "opacity-100 translate-x-0 " : "opacity-0 -translate-x-10"} text-md text-black/60`}>{opt.info}</p>
                 <button className={`py-2 px-4 w-max bg-black rounded-xl text-white text-xl border border-transparent transition-all duration-200 ease-in hover:bg-white hover:border-black hover:text-black active:scale-95 cursor-pointer ${anime2 ? "opacity-100 translate-y-0 " : "opacity-0 translate-y-10"} `}>Order Now</button>

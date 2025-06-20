@@ -154,9 +154,7 @@
     .h_p1{
       width: 600px;
     }
-    .ui_text{
-      font-size: 25px;
-    }
+   
 }
 
 
@@ -182,5 +180,8 @@
   }
 }
 
-/* @media screen and (max-width:1146px) {
-} */
+@media screen and (max-width:1146px) {
+   .dish{
+    right:-33% ;
+  }
+}
