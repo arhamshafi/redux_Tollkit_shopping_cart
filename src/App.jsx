@@ -10,6 +10,7 @@ import Header from './Header';
 function App() {
   let side_bar = useSelector((state) => state.cart.sidebar)
   let cart = useSelector((state) => state.cart.items)
+  let total_bill = useSelector((state) => state.cart.total_amount)
 
   let dispatch = useDispatch()
   return (
@@ -18,7 +19,7 @@ function App() {
       <Header />
 
       <div className={`fixed top-0 right-0 bg-black/30 w-full transition-all duration-300 ease-linear h-screen z-20 ${side_bar ? "opacity-100 visible" : "opacity-0 invisible"} `} onClick={() => dispatch(toogle_sidebar())}></div>
-      <div className={`fixed w-[280px] sm:w-[400px] p-4  h-screen bg-black transition-all duration-400 ease-in-out top-0 z-20 ${side_bar ? "right-0" : "right-[-405px]"} `}>
+      <div className={`fixed w-[300px] sm:w-[400px] p-4  h-screen bg-black transition-all duration-400 ease-in-out top-0 z-20 ${side_bar ? "right-0" : "right-[-405px]"} `}>
         <UtensilsCrossed strokeWidth={2} className='absolute top-4 active:scale-95 hover:text-red-500 transition-all duration-100 cursor-pointer right-4 text-white' onClick={() => dispatch(toogle_sidebar())} />
         <h1 className='text-white font-bold tracking-[2px] text-xl select-none'>Your Order :-  </h1>
 
@@ -55,19 +56,21 @@ function App() {
             <>
               <div className='flex select-none cursor-context-menu meal_anime items-center justify-center relative'>
                 <div className='text-6xl text-white mt-3 text-center flex items-center justify-center gap-1'> 🍽   <p className='text-3xl'>🍹</p> </div>
-                <p className='absolute text-3xl left-[39%] top-[35%]'>🍔</p>
+                <p className='absolute text-3xl left-[35%] scale-90 sm:scale-100 sm:left-[39%] top-[35%]'>🍔</p>
 
               </div>
 
-              <div className='w-full h-[350px] py-1 px-3 crt_scroll mt-10 text-white'>
+              <div className='w-full h-[350px] py-1 px-0 sm:px-3 crt_scroll mt-10 text-white'>
                   <div className='w-full h-[90px] bg-white/20 rounded-lg mt-3 flex justify-evenly items-center'>
-                    <div className='w-[70px] h-[70px] border rounded-lg overflow-hidden'> <img className='w-full h-full' src="" alt="" /> </div>
-                    <div className='w-[200px] h-[80px] rounded-lg'>
+                    <div className='w-[70px] h-[70px] rounded-lg overflow-hidden'> 
+                      {/* <img className='w-full h-full' src={} alt="" />  */}
+                      </div>
+                    <div className=' w-[170px] sm:w-[200px] h-[80px] rounded-lg'>
                       <h1 className='text-white text-md '>Name</h1>
                       <p className='text-green-500 text-sm mt-1'>Price</p>
                       <div className='w-max flex justify-center items-center gap-2 mt-1'>
                             <Minus size={18} className='cursor-pointer text-white' />
-                              <p>23</p>                            
+                              <p className='text-yellow-300 text-sm sm:text-md '> wqw</p>                            
                             <Plus size={18} className='cursor-pointer text-white' />
                       </div>
                     </div>
@@ -75,7 +78,7 @@ function App() {
               </div>
               <div className='w-full h-[70px] bg-red-700 red_boxsh rounded-2xl mt-8 flex px-5 justify-between items-center'>
                   <h1 className='text-xl text-white font-bold tracking-[1px]'>Total Bill :-</h1>
-                  <p className='text-md text-yellow-400 '>1203-8</p>
+                  <p className='text-md text-yellow-400 '> {total_bill} $ </p>
               </div>
 
             </>

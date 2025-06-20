@@ -3,6 +3,8 @@ import Navbar from './Navbar'
 import cabbage from './images/freepik__transparent-salad-cabbage__81821-removebg-preview.png';
 import material from './Data';
 import roast from "./images/roast-removebg-preview.png"
+import { useDispatch, useSelector } from 'react-redux';
+import { Add_to_cart } from './Features/Cart_reducer';
 
 
 function Header() {
@@ -11,6 +13,10 @@ function Header() {
 
     let [anim, setanim] = useState(false)
     let [anime2, setanime2] = useState(false)
+    let dispatch = useDispatch()
+    let cart = useSelector((state) => state.cart.items)
+    console.log(cart);
+    
 
     let [opt, setopt] = useState({
         id: 1,
@@ -18,7 +24,8 @@ function Header() {
         img: roast,
         info: "A royal fusion of flavors featuring a tender grilled chicken leg, spiced tikka chunks, seasoned baby potatoes with green peas, and a side of fresh garden salad — all served on a single rustic platter. Perfectly balanced, delightfully hearty.",
         price: 3.67,
-        index: 0
+        index: 0,
+        quantity: 1
     })
 
     useEffect(() => {
@@ -105,7 +112,8 @@ function Header() {
                 <h1 className={` transition-all duration-200 ease-in-out ${anim ? "opacity-100 translate-y-0 " : "opacity-0 -translate-y-10"} mt-0 lg:mt-10 text-lg sm:text-3xl font-bold tt`}> {opt.name} </h1>
                 <h1 className={` transition-all duration-200 ease-in-out ${anime2 ? "opacity-100 translate-x-0 " : "opacity-0 -translate-x-10"} text-lg sm:text-3xl font-bold text-red-600 rt`}>{opt.price} $</h1>
                 <p className={` transition-all duration-200 ease-in-out ${anime2 ? "opacity-100 translate-x-0 " : "opacity-0 -translate-x-10"} text-[13px] sm:text-lg text-black/60`}>{opt.info}</p>
-                <button className={`py-2 px-4 w-max bg-black rounded-xl text-white text-sm sm:text-xl border border-transparent transition-all duration-200 ease-in hover:bg-white hover:border-black hover:text-black active:scale-95 cursor-pointer ${anime2 ? "opacity-100 translate-y-0 " : "opacity-0 translate-y-10"} `}>Order Now</button>
+                <button className={`py-2 px-4 w-max bg-black rounded-xl text-white text-sm sm:text-xl border border-transparent transition-all duration-200 ease-in hover:bg-white hover:border-black hover:text-black active:scale-95 cursor-pointer
+                     ${anime2 ? "opacity-100 translate-y-0 " : "opacity-0 translate-y-10"} `} onClick={()=>dispatch(Add_to_cart(opt))} >Order Now</button>
 
                 <div className='m-0 h-max absolute w-max bottom-15 left-10 lg:block hidden'>
                     <div className='w-[100px] h-[2px] mt-15 bg-black/50 inline-block -translate-y-1'></div> <p className='text-black inline-block font-bold'>Stay Healthy</p>
