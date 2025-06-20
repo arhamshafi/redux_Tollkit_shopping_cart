@@ -11,8 +11,6 @@ function Header() {
 
     let [anim, setanim] = useState(false)
     let [anime2, setanime2] = useState(false)
-    // let [anime3, setanime3] = useState(false)
-    // let [anime4, setanime4] = useState(false)
 
     let [opt, setopt] = useState({
         id: 1,
@@ -27,8 +25,6 @@ function Header() {
         let timer = setTimeout(() => {
             setanim(true);
             setanime2(true)
-            // setanime3(true)
-            // setanime4(true)
         }, 500);
         return () => clearTimeout(timer)
     }, [anim])
@@ -37,18 +33,23 @@ function Header() {
     function active(obj, num) {
         setanim(false)
         setanime2(false)
-        // setanime3(false)
-        // setanime4(false)
 
         setTimeout(() => {
             setopt({ ...obj, index: num });
         }, 200);
-
     }
+
+    let mobileClass = anime2
+        ? "opacity-100 rotate-0 translate-y-0 scale-100"
+        : "-translate-y-20 opacity-0 scale-40 rotate-180"
+
+    let smClass = anime2
+        ? "sm:opacity-100 sm:rotate-0 sm:scale-100 sm:translate-y-0"
+        : "sm:opacity-0 sm:scale-40 sm:rotate-180 sm:translate-y-0"
 
     return (
         <div className='w-full py-1'>
-            <div className=" hidden sm:block lg:hidden mt-25 text-xl text-center tt tracking-[0.2em] text-black select-none  uppercase">
+            <div className=" hidden sm:block lg:hidden mt-15 text-xl text-center tt tracking-[0.2em] text-black select-none  uppercase">
                 Designed with <span className="text-red-600 rt font-bold">UX&nbsp;|&nbsp;ARHAM</span>
             </div>
             <div className='w-[800px] h-[800px] scale-80 dish xl:w-[900px] xl:h-[900px] rounded-full hidden fixed top-[-10%] xl:top-[-35%] lg:flex justify-center items-center right-[-30%] xl:right-[-28%] border-2 border-dashed border-black/20'>
@@ -66,15 +67,18 @@ function Header() {
                 </div>
             </div>
             <Navbar />
-            {/* /////////////// */}
 
-            <div className='w-full sm:w-[85%] h-[max] mx-auto py-2 mt-[-35%] sm:mt-5 block lg:hidden'>
+            <div className='w-full sm:w-[85%] h-[max] mx-auto py-2 mt-[-40%] dd sm:mt-5 block lg:hidden'>
 
-                <div className='w-[450px] sm:w-[300px] h-[450px] sm:h-[300px] rounded-full relative border sm:border-0 border-dashed mx-auto flex justify-center items-center'>
+                <div className='w-[450px] dish2 sm:w-[300px] h-[450px] sm:h-[300px] rounded-full relative border sm:border-0 border-dashed mx-auto flex justify-center items-center'>
                     <div className=' bg-black w-[80%] sm:w-full blackboxsh h-[80%] sm:h-full rounded-full absolute top-[10%] sm:top-0 left-[10%] sm:left-0  rot'
                         style={{ backgroundImage: `url(${cabbage})`, backgroundPositionX: "30px", backgroundRepeat: "no-repeat", backgroundSize: "cover" }}
                     ></div>
-                    <img className={` transition-all duration-200 ease-in-out ${anime2 ? "opacity-100 rotate-0 scale-100" : " opacity-0 scale-40 rotate-90 "} w-[50%] up_down2`} src={opt.img} alt="" />
+                    <img
+                        className={`transition-all duration-200 ease-in-out mt-[25%] sm:mt-0 w-[30%] ind sm:w-[50%] up_down2 ${mobileClass} ${smClass}`}
+                        src={opt.img}
+                        alt=""
+                    />
 
                     {data && data.map(((ele, idx) => {
                         return (
@@ -82,7 +86,6 @@ function Header() {
                                 <img className={`w-full scale-80`} src={ele.img} alt="" /></div>
                         )
                     }))}
-
                 </div>
 
                 <div className='w-full h-max mt-10 flex justify-evenly items-center'>
@@ -95,15 +98,14 @@ function Header() {
                 </div>
             </div>
 
-            {/* /////////////// */}
-            <div className={`w-[80%] lg:w-[650px] xl:w-[700px] h-[max] lg:h-[580px] xl:h-[610px]  mt-10 lg:mt-0 flex flex-col gap-5 xl:gap-7 justify-center pl-10 transition-all duration-150 ease-linear relative  `} >
+            <div className={`w-[80%] sm:w-[80%] cont lg:w-[650px] xl:w-[700px] h-[max] lg:h-[580px] xl:h-[610px] mt-5 sm:mt-10 lg:mt-0 flex flex-col gap-5 xl:gap-7 justify-center pl-4 sm:pl-10 transition-all duration-150 ease-linear relative  `} >
                 <div className="absolute top-27 hidden lg:block left-10 ui_text text-xl tt tracking-[0.2em] text-black select-none  uppercase">
                     Designed with <span className="text-red-600 rt font-bold">UX&nbsp;|&nbsp;ARHAM</span>
                 </div>
-                <h1 className={` transition-all duration-200 ease-in-out ${anim ? "opacity-100 translate-y-0 " : "opacity-0 -translate-y-10"} mt-0 lg:mt-10 text-3xl font-bold tt`}> {opt.name} </h1>
-                <h1 className={` transition-all duration-200 ease-in-out ${anime2 ? "opacity-100 translate-x-0 " : "opacity-0 -translate-x-10"} text-3xl font-bold text-red-600 rt`}>{opt.price} $</h1>
-                <p className={` transition-all duration-200 ease-in-out ${anime2 ? "opacity-100 translate-x-0 " : "opacity-0 -translate-x-10"} text-md text-black/60`}>{opt.info}</p>
-                <button className={`py-2 px-4 w-max bg-black rounded-xl text-white text-xl border border-transparent transition-all duration-200 ease-in hover:bg-white hover:border-black hover:text-black active:scale-95 cursor-pointer ${anime2 ? "opacity-100 translate-y-0 " : "opacity-0 translate-y-10"} `}>Order Now</button>
+                <h1 className={` transition-all duration-200 ease-in-out ${anim ? "opacity-100 translate-y-0 " : "opacity-0 -translate-y-10"} mt-0 lg:mt-10 text-lg sm:text-3xl font-bold tt`}> {opt.name} </h1>
+                <h1 className={` transition-all duration-200 ease-in-out ${anime2 ? "opacity-100 translate-x-0 " : "opacity-0 -translate-x-10"} text-lg sm:text-3xl font-bold text-red-600 rt`}>{opt.price} $</h1>
+                <p className={` transition-all duration-200 ease-in-out ${anime2 ? "opacity-100 translate-x-0 " : "opacity-0 -translate-x-10"} text-[12px] sm:text-md text-black/60`}>{opt.info}</p>
+                <button className={`py-2 px-4 w-max bg-black rounded-xl text-white text-sm sm:text-xl border border-transparent transition-all duration-200 ease-in hover:bg-white hover:border-black hover:text-black active:scale-95 cursor-pointer ${anime2 ? "opacity-100 translate-y-0 " : "opacity-0 translate-y-10"} `}>Order Now</button>
 
                 <div className='m-0 h-max absolute w-max bottom-15 left-10 lg:block hidden'>
                     <div className='w-[100px] h-[2px] mt-15 bg-black/50 inline-block -translate-y-1'></div> <p className='text-black inline-block font-bold'>Stay Healthy</p>
@@ -112,7 +114,9 @@ function Header() {
                     <p className='text-black inline-block font-bold'>Stay Safe</p> <div className='w-[100px] h-[2px] mt-15 bg-black/50 inline-block -translate-y-1'></div>
                 </div>
             </div>
-
+            <div className="block sm:hidden mt-10 text-sm text-center sig tt tracking-[0.2em] text-black select-none  uppercase">
+                Designed with <span className="text-red-600 rt underline font-bold">UX&nbsp;|&nbsp;ARHAM</span>
+            </div>
         </div>
     )
 }
