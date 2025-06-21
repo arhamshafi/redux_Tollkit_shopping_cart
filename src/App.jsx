@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { UtensilsCrossed, ScrollText, Plus, Minus } from 'lucide-react';
-import { toogle_sidebar } from './Features/Cart_reducer';
+import { toogle_sidebar , del , incr , decr } from './Features/Cart_reducer';
 import { useSelector, useDispatch } from 'react-redux';
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Environment } from '@react-three/drei'
@@ -66,26 +66,23 @@ function App() {
                   return (
 
                     <div key={idx} className='w-full hidden  h-[90px] hover:bg-white/25 transition-all duration-100 group ease-linear bg-white/20 rounded-lg mt-3 sm:flex relative justify-between px-3 items-center'>
-                      <div className='absolute top-2 right-2 rotate-[45deg] cursor-pointer text-yellow-500 hover:text-red-500 active:scale-90 transition-all duration-100 ease-linear z-10'> <Plus /> </div>
+                      <div className='absolute top-2 right-2 rotate-[45deg] cursor-pointer text-yellow-500 hover:text-red-500 active:scale-90 transition-all duration-100 ease-linear z-10' onClick={()=>dispatch(del(ele))}> <Plus /> </div>
 
                       <div className='w-[40px] sm:w-[70px] h-[40px] sm:h-[70px] rounded-lg'>
                         <img className='w-full h-full group-hover:scale-110 transition-all duration-200 ease-in' src={ele.img} alt="" />
                       </div>
                       <div className=' w-[240px] h-[80px] rounded-lg'>
-                        <h1 className='text-white text-[14px] text-nowrap font-bold'> {ele.name} </h1>
+                        <h1 className='text-white text-[12px] mt-2 font-bold'> {ele.name} </h1>
                         <p className='text-green-500 text-sm mt-1'>$ {ele.price} </p>
                         <div className='w-max flex justify-center items-center gap-2 mt-1'>
-                          <Minus size={18} className='cursor-pointer text-white hover:text-red-400 active:scale-85 transition-all duration-75 ease-linear' />
+                          <Minus size={18} className='cursor-pointer text-white hover:text-red-400 active:scale-85 transition-all duration-75 ease-linear' onClick={()=>dispatch(decr(ele))} />
                           <p className='text-yellow-300 text-sm sm:text-md '> {ele.quantity} </p>
-                          <Plus size={18} className='cursor-pointer text-white  hover:text-green-300 active:scale-85 transition-all duration-75 ease-linear' />
+                          <Plus size={18} className='cursor-pointer text-white  hover:text-green-300 active:scale-85 transition-all duration-75 ease-linear' onClick={()=>dispatch(incr(ele))} />
                         </div>
                       </div>
                     </div>
-
-
                   )
                 })}
-
                 {
                   cart && cart.map((ele, idx) => {
                     return (

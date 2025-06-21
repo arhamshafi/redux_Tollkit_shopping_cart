@@ -1,4 +1,4 @@
-import React from "react";
+import React, { act } from "react";
 import { createSlice } from "@reduxjs/toolkit";
 
 let initialState = {
@@ -25,17 +25,46 @@ let cart_reducer = (createSlice({
                 state.items.push(action.payload)
             }
             update_amount(state)
+        },
+        del: (state, action) => {
+            let id = action.payload.id
+            state.items = state.items.filter((item => item.id !== id))
+            update_amount(state)
+        },
+        incr: (state, action) => {
+            let id = action.payload.id
+            let item = state.items.find(i => i.id === id)
+
+            if (item) {
+                item.quantity += 1
+            }
+            update_amount(state)
+        },
+        decr: (state, action) => {
+            let id = action.payload.id;
+            let item = state.items.find(i => i.id === id);
+
+            if (item) {
+                if (item.quantity > 1) {
+                    item.quantity -= 1;
+                } else {
+                    state.items = state.items.filter(ele => ele.id !== id);
+                }
+            }
+
+            update_amount(state);
         }
+
     }
 }))
 
 function update_amount(state) {
-    state.total_amount = state.items.reduce((acc, item) => {
-        return acc + item.price * item.quantity
-    }, 0)
-
+    state.total_amount = Number(
+        state.items.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)
+    );
 }
 
 
-export let { toogle_sidebar, Add_to_cart } = cart_reducer.actions
+
+export let { toogle_sidebar, Add_to_cart, del, incr, decr } = cart_reducer.actions
 export default cart_reducer.reducer

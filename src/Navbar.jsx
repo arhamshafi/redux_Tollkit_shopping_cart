@@ -1,12 +1,13 @@
 import React from 'react'
 import { ShoppingBag, Search, Menu } from 'lucide-react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toogle_sidebar } from './Features/Cart_reducer';
 import logo from "./images/chef-cozinheiros-cociner-tela-pinterest-clip-art-32.png"
 
 function Navbar() {
 
     let dispatch = useDispatch();
+    let cartLength = useSelector((state) => state.cart.items.length);
     return (
         <div className='w-full flex justify-between px-3 sm:px-8 lg:px-15 items-center fixed top-4 bg-transparent  left-0 z-20'>
             <div className="w-[40px] scale-130 rotate-[-5deg] chef cursor-context-menu "><img className='drop-shadow-sm' src={logo} alt="" /></div>
@@ -21,7 +22,15 @@ function Navbar() {
                 <Menu className='hidden sm:block lg:hidden cursor-pointer n_i ' />
                 <div className=" relative flex justify-center  text-black xl:text-white items-center  gap-5"><Search size={18} className='cursor-pointer hidden sm:block' strokeWidth={3} />
                     <ShoppingBag strokeWidth={3} size={18} className=' cursor-pointer active:scale-95 transition-all duration-100 ' onClick={() => dispatch(toogle_sidebar())} />
-                    <div className='w-[8px] h-[8px] bg-red-500 rounded-full doot absolute right-[-1px] top-0 popup'></div>
+                    {
+                        cartLength !== 0 && (
+                            <>
+                                <div className='w-[7px] h-[7px] bg-red-500 rounded-full doot absolute right-[-1px] top-0 popup'></div>
+                                <div className='w-[7px] h-[7px] bg-red-500 dotanime rounded-full doot absolute right-[-1px] top-0 popup'></div>
+                            </>
+                        )
+                    }
+
                 </div>
             </div>
         </div>

@@ -148,6 +148,19 @@
   text-shadow: .1px .1px 2px red;
 }
 
+.dotanime{
+  animation:dotanime 1s infinite;
+}
+@keyframes dotanime{
+  from{
+    transform:scale(1);
+    opacity: 1;
+  }
+  to{
+    transform:scale(2.5);
+    opacity: 0;
+  }
+}
 
 @media screen and (max-width:1279px) {
   .opt_div:nth-child(1) {
