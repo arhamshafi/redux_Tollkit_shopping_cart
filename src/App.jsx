@@ -90,15 +90,15 @@ function App() {
                       <div key={idx} className='block sm:hidden w-full group h-[90px]  mt-4 border-1 overflow-hidden rounded-lg mx-auto bg-cover bg-no-repeat bg-center relative'
                         style={{ backgroundImage: `url(${ele.img})` }}
                       >
-                        <div className='absolute top-2 right-2 rotate-[45deg] cursor-pointer text-yellow-500 hover:text-red-500 active:scale-90 transition-all duration-100 ease-linear z-10'> <Plus /> </div>
+                        <div className='absolute top-2 right-2 rotate-[45deg] cursor-pointer text-yellow-500 hover:text-red-500 active:scale-90 transition-all duration-100 ease-linear z-10' onClick={()=>dispatch(del(ele))}> <Plus /> </div>
                         <div className='absolute w-full h-full bg-black/80 group-hover:bg-black/75 transition-all duration-100 ease-in flex px-5 justify-center flex-col'>
 
                           <h1 className='text-[12px] text-white font-bold'> {ele.name} </h1>
                           <p className='mt-1 text-green-400'>$ {ele.price}</p>
                           <div className='w-max flex justify-center items-center gap-2 mt-1'>
-                            <Minus size={18} className='cursor-pointer text-white hover:text-red-400 active:scale-85 transition-all duration-75 ease-linear' />
+                            <Minus size={18} className='cursor-pointer text-white hover:text-red-400 active:scale-85 transition-all duration-75 ease-linear' onClick={()=>dispatch(decr(ele))} />
                             <p className='text-yellow-300 text-sm sm:text-md '> {ele.quantity} </p>
-                            <Plus size={18} className='cursor-pointer text-white  hover:text-green-300 active:scale-85 transition-all duration-75 ease-linear' />
+                            <Plus size={18} className='cursor-pointer text-white  hover:text-green-300 active:scale-85 transition-all duration-75 ease-linear' onClick={()=>dispatch(incr(ele))} />
                           </div>
                         </div>
                       </div>
