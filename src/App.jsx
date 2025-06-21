@@ -1,20 +1,51 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { UtensilsCrossed, ScrollText, Plus, Minus } from 'lucide-react';
-import { toogle_sidebar , del , incr , decr } from './Features/Cart_reducer';
+import { toogle_sidebar, del, incr, decr } from './Features/Cart_reducer';
 import { useSelector, useDispatch } from 'react-redux';
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Environment } from '@react-three/drei'
 import FoodModel from './BurgerModel'
 import Header from './Header';
+import logo from "./images/chef-cozinheiros-cociner-tela-pinterest-clip-art-32.png"
+
 
 function App() {
   let side_bar = useSelector((state) => state.cart.sidebar)
   let cart = useSelector((state) => state.cart.items)
   let total_bill = useSelector((state) => state.cart.total_amount)
-
   let dispatch = useDispatch()
-  return (
-    <div className='w-full py-3 bg-white select-none'>
+  let [loader, setloader] = useState(true)
+
+  useEffect(() => {
+
+    let timer = setTimeout(() => {
+      setloader(false)
+    }, 5000);
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  return  (
+    <div className='w-full py-3 bg-white select-none '>
+      
+          <div className={`w-full h-screen fixed bg-white z-50 top-0  left-0 flex justify-center items-center transition-all duration-200 ease-linear ${loader ? "visible opacity-100" : "invisible opacity-0"} `}>
+             <img className='w-[20%] load ' src={logo} alt="" /> 
+              <div className='text-3xl text-red-500 rt hidden sm:flex justify-center items-center gap-1'>
+                <p className='text_anime font-bold text-3xl'>A</p>
+                <p className='text_anime2 font-bold text-3xl'>R</p>
+                <p className='text_anime font-bold text-3xl'></p>
+                <p className='text_anime2 font-bold text-3xl'></p>
+                <p className='text_anime font-bold text-3xl'>|</p>
+                <p className='text_anime2 font-bold text-3xl'></p>
+                <p className='text_anime font-bold text-3xl'>P</p>
+                <p className='text_anime2 font-bold text-3xl'>R</p>
+                <p className='text_anime font-bold text-3xl'>E</p>
+                <p className='text_anime2 font-bold text-3xl'>S</p>
+                <p className='text_anime font-bold text-3xl'>E</p>
+                <p className='text_anime2 font-bold text-3xl'>N</p>
+                <p className='text_anime font-bold text-3xl'>T</p>
+              </div>
+             </div>
 
       <Header />
 
@@ -66,7 +97,7 @@ function App() {
                   return (
 
                     <div key={idx} className='w-full hidden  h-[90px] hover:bg-white/25 transition-all duration-100 group ease-linear bg-white/20 rounded-lg mt-3 sm:flex relative justify-between px-3 items-center'>
-                      <div className='absolute top-2 right-2 rotate-[45deg] cursor-pointer text-yellow-500 hover:text-red-500 active:scale-90 transition-all duration-100 ease-linear z-10' onClick={()=>dispatch(del(ele))}> <Plus /> </div>
+                      <div className='absolute top-2 right-2 rotate-[45deg] cursor-pointer text-yellow-500 hover:text-red-500 active:scale-90 transition-all duration-100 ease-linear z-10' onClick={() => dispatch(del(ele))}> <Plus /> </div>
 
                       <div className='w-[40px] sm:w-[70px] h-[40px] sm:h-[70px] rounded-lg'>
                         <img className='w-full h-full group-hover:scale-110 transition-all duration-200 ease-in' src={ele.img} alt="" />
@@ -75,9 +106,9 @@ function App() {
                         <h1 className='text-white text-[12px] mt-2 font-bold'> {ele.name} </h1>
                         <p className='text-green-500 text-sm mt-1'>$ {ele.price} </p>
                         <div className='w-max flex justify-center items-center gap-2 mt-1'>
-                          <Minus size={18} className='cursor-pointer text-white hover:text-red-400 active:scale-85 transition-all duration-75 ease-linear' onClick={()=>dispatch(decr(ele))} />
+                          <Minus size={18} className='cursor-pointer text-white hover:text-red-400 active:scale-85 transition-all duration-75 ease-linear' onClick={() => dispatch(decr(ele))} />
                           <p className='text-yellow-300 text-sm sm:text-md '> {ele.quantity} </p>
-                          <Plus size={18} className='cursor-pointer text-white  hover:text-green-300 active:scale-85 transition-all duration-75 ease-linear' onClick={()=>dispatch(incr(ele))} />
+                          <Plus size={18} className='cursor-pointer text-white  hover:text-green-300 active:scale-85 transition-all duration-75 ease-linear' onClick={() => dispatch(incr(ele))} />
                         </div>
                       </div>
                     </div>
@@ -90,15 +121,15 @@ function App() {
                       <div key={idx} className='block sm:hidden w-full group h-[90px]  mt-4 border-1 overflow-hidden rounded-lg mx-auto bg-cover bg-no-repeat bg-center relative'
                         style={{ backgroundImage: `url(${ele.img})` }}
                       >
-                        <div className='absolute top-2 right-2 rotate-[45deg] cursor-pointer text-yellow-500 hover:text-red-500 active:scale-90 transition-all duration-100 ease-linear z-10' onClick={()=>dispatch(del(ele))}> <Plus /> </div>
+                        <div className='absolute top-2 right-2 rotate-[45deg] cursor-pointer text-yellow-500 hover:text-red-500 active:scale-90 transition-all duration-100 ease-linear z-10' onClick={() => dispatch(del(ele))}> <Plus /> </div>
                         <div className='absolute w-full h-full bg-black/80 group-hover:bg-black/75 transition-all duration-100 ease-in flex px-5 justify-center flex-col'>
 
                           <h1 className='text-[12px] text-white font-bold'> {ele.name} </h1>
                           <p className='mt-1 text-green-400'>$ {ele.price}</p>
                           <div className='w-max flex justify-center items-center gap-2 mt-1'>
-                            <Minus size={18} className='cursor-pointer text-white hover:text-red-400 active:scale-85 transition-all duration-75 ease-linear' onClick={()=>dispatch(decr(ele))} />
+                            <Minus size={18} className='cursor-pointer text-white hover:text-red-400 active:scale-85 transition-all duration-75 ease-linear' onClick={() => dispatch(decr(ele))} />
                             <p className='text-yellow-300 text-sm sm:text-md '> {ele.quantity} </p>
-                            <Plus size={18} className='cursor-pointer text-white  hover:text-green-300 active:scale-85 transition-all duration-75 ease-linear' onClick={()=>dispatch(incr(ele))} />
+                            <Plus size={18} className='cursor-pointer text-white  hover:text-green-300 active:scale-85 transition-all duration-75 ease-linear' onClick={() => dispatch(incr(ele))} />
                           </div>
                         </div>
                       </div>
