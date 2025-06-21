@@ -6,7 +6,6 @@ let initialState = {
     items: [],
     total_amount: 0
 }
-console.log(initialState.items);
 
 let cart_reducer = (createSlice({
     name: "cart_reducer",

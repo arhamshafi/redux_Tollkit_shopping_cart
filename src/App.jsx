@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { UtensilsCrossed, ScrollText , Plus , Minus} from 'lucide-react';
+import { UtensilsCrossed, ScrollText, Plus, Minus } from 'lucide-react';
 import { toogle_sidebar } from './Features/Cart_reducer';
 import { useSelector, useDispatch } from 'react-redux';
 import { Canvas } from '@react-three/fiber'
@@ -61,24 +61,59 @@ function App() {
               </div>
 
               <div className='w-full h-[350px] py-1 px-0 sm:px-3 crt_scroll mt-10 text-white'>
-                  <div className='w-full h-[90px] bg-white/20 rounded-lg mt-3 flex justify-evenly items-center'>
-                    <div className='w-[70px] h-[70px] rounded-lg overflow-hidden'> 
-                      {/* <img className='w-full h-full' src={} alt="" />  */}
+
+                {cart.map((ele, idx) => {
+                  return (
+
+                    <div key={idx} className='w-full hidden  h-[90px] hover:bg-white/25 transition-all duration-100 group ease-linear bg-white/20 rounded-lg mt-3 sm:flex relative justify-between px-3 items-center'>
+                      <div className='absolute top-2 right-2 rotate-[45deg] cursor-pointer text-yellow-500 hover:text-red-500 active:scale-90 transition-all duration-100 ease-linear z-10'> <Plus /> </div>
+
+                      <div className='w-[40px] sm:w-[70px] h-[40px] sm:h-[70px] rounded-lg'>
+                        <img className='w-full h-full group-hover:scale-110 transition-all duration-200 ease-in' src={ele.img} alt="" />
                       </div>
-                    <div className=' w-[170px] sm:w-[200px] h-[80px] rounded-lg'>
-                      <h1 className='text-white text-md '>Name</h1>
-                      <p className='text-green-500 text-sm mt-1'>Price</p>
-                      <div className='w-max flex justify-center items-center gap-2 mt-1'>
-                            <Minus size={18} className='cursor-pointer text-white' />
-                              <p className='text-yellow-300 text-sm sm:text-md '> wqw</p>                            
-                            <Plus size={18} className='cursor-pointer text-white' />
+                      <div className=' w-[240px] h-[80px] rounded-lg'>
+                        <h1 className='text-white text-[14px] text-nowrap font-bold'> {ele.name} </h1>
+                        <p className='text-green-500 text-sm mt-1'>$ {ele.price} </p>
+                        <div className='w-max flex justify-center items-center gap-2 mt-1'>
+                          <Minus size={18} className='cursor-pointer text-white hover:text-red-400 active:scale-85 transition-all duration-75 ease-linear' />
+                          <p className='text-yellow-300 text-sm sm:text-md '> {ele.quantity} </p>
+                          <Plus size={18} className='cursor-pointer text-white  hover:text-green-300 active:scale-85 transition-all duration-75 ease-linear' />
+                        </div>
                       </div>
                     </div>
-                  </div>
+
+
+                  )
+                })}
+
+                {
+                  cart && cart.map((ele, idx) => {
+                    return (
+
+                      <div key={idx} className='block sm:hidden w-full group h-[90px]  mt-4 border-1 overflow-hidden rounded-lg mx-auto bg-cover bg-no-repeat bg-center relative'
+                        style={{ backgroundImage: `url(${ele.img})` }}
+                      >
+                        <div className='absolute top-2 right-2 rotate-[45deg] cursor-pointer text-yellow-500 hover:text-red-500 active:scale-90 transition-all duration-100 ease-linear z-10'> <Plus /> </div>
+                        <div className='absolute w-full h-full bg-black/80 group-hover:bg-black/75 transition-all duration-100 ease-in flex px-5 justify-center flex-col'>
+
+                          <h1 className='text-[12px] text-white font-bold'> {ele.name} </h1>
+                          <p className='mt-1 text-green-400'>$ {ele.price}</p>
+                          <div className='w-max flex justify-center items-center gap-2 mt-1'>
+                            <Minus size={18} className='cursor-pointer text-white hover:text-red-400 active:scale-85 transition-all duration-75 ease-linear' />
+                            <p className='text-yellow-300 text-sm sm:text-md '> {ele.quantity} </p>
+                            <Plus size={18} className='cursor-pointer text-white  hover:text-green-300 active:scale-85 transition-all duration-75 ease-linear' />
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })
+                }
+
+
               </div>
               <div className='w-full h-[70px] bg-red-700 red_boxsh rounded-2xl mt-8 flex px-5 justify-between items-center'>
-                  <h1 className='text-xl text-white font-bold tracking-[1px]'>Total Bill :-</h1>
-                  <p className='text-md text-yellow-400 '> {total_bill} $ </p>
+                <h1 className='text-xl text-white font-bold tracking-[1px]'>Total Bill :-</h1>
+                <p className='text-md text-yellow-400 '> {total_bill} $ </p>
               </div>
 
             </>

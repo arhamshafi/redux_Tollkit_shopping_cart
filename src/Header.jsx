@@ -15,7 +15,6 @@ function Header() {
     let [anime2, setanime2] = useState(false)
     let dispatch = useDispatch()
     let cart = useSelector((state) => state.cart.items)
-    console.log(cart);
     
 
     let [opt, setopt] = useState({
