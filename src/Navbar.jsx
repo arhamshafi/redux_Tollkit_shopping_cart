@@ -9,8 +9,8 @@ function Navbar() {
     let dispatch = useDispatch();
     let cartLength = useSelector((state) => state.cart.items.length);
     return (
-        <div className='w-full flex justify-between px-3 sm:px-8 lg:px-15 items-center fixed top-4 bg-transparent  left-0 z-20'>
-            <div className="w-[40px] scale-130 rotate-[-5deg] chef cursor-context-menu "><img className='drop-shadow-sm' src={logo} alt="" /></div>
+        <div className='w-full flex justify-between px-3 sm:px-8 lg:px-15 items-center fixed top-4 left-0 z-20'>
+            <div className="w-[40px] scale-130 invisible sm:visible rotate-[-5deg] chef cursor-context-menu "><img className='drop-shadow-sm' src={logo} alt="" /></div>
             <ul className=" text-sm justify-center items-center gap-15 up_down hidden lg:flex">
                 <li className='relative cursor-pointer tracking-[1px] group text-black'>Home <div className='h-[2px] rounded-md w-full transition-all duration-150 ease-in bg-red-500 absolute bottom-0 left-0'></div></li>
                 <li className='relative cursor-pointer tracking-[1px] group text-black/50'>Shop <div className='w-[0px] h-[2px] rounded-md group-hover:w-full transition-all duration-150 ease-in bg-red-500 absolute bottom-0 left-0'></div></li>

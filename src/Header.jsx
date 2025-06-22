@@ -5,6 +5,8 @@ import material from './Data';
 import roast from "./images/roast-removebg-preview.png"
 import { useDispatch, useSelector } from 'react-redux';
 import { Add_to_cart } from './Features/Cart_reducer';
+import logo from "./images/chef-cozinheiros-cociner-tela-pinterest-clip-art-32.png"
+
 
 
 function Header() {
@@ -15,7 +17,7 @@ function Header() {
     let [anime2, setanime2] = useState(false)
     let dispatch = useDispatch()
     let cart = useSelector((state) => state.cart.items)
-    
+
 
     let [opt, setopt] = useState({
         id: 1,
@@ -112,7 +114,7 @@ function Header() {
                 <h1 className={` transition-all duration-200 ease-in-out ${anime2 ? "opacity-100 translate-x-0 " : "opacity-0 -translate-x-10"} text-lg sm:text-3xl font-bold text-red-600 rt`}>{opt.price} $</h1>
                 <p className={` transition-all duration-200 ease-in-out ${anime2 ? "opacity-100 translate-x-0 " : "opacity-0 -translate-x-10"} text-[13px] sm:text-lg text-black/60`}>{opt.info}</p>
                 <button className={`py-2 px-4 w-max bg-black rounded-xl text-white text-sm sm:text-xl border border-transparent transition-all duration-200 ease-in hover:bg-white hover:border-black hover:text-black active:scale-95 cursor-pointer
-                     ${anime2 ? "opacity-100 translate-y-0 " : "opacity-0 translate-y-10"} `} onClick={()=>dispatch(Add_to_cart(opt))} >Order Now</button>
+                     ${anime2 ? "opacity-100 translate-y-0 " : "opacity-0 translate-y-10"} `} onClick={() => dispatch(Add_to_cart(opt))} >Order Now</button>
 
                 <div className='m-0 h-max absolute w-max bottom-15 left-10 lg:block hidden'>
                     <div className='w-[100px] h-[2px] mt-15 bg-black/50 inline-block -translate-y-1'></div> <p className='text-black inline-block font-bold'>Stay Healthy</p>
@@ -121,9 +123,11 @@ function Header() {
                     <p className='text-black inline-block font-bold'>Stay Safe</p> <div className='w-[100px] h-[2px] mt-15 bg-black/50 inline-block -translate-y-1'></div>
                 </div>
             </div>
-            <div className="block sm:hidden mt-10 text-sm text-center sig tt tracking-[0.2em] text-black select-none  uppercase">
-                Designed with <span className="text-red-600 rt underline font-bold">UX&nbsp;|&nbsp;ARHAM</span>
-            </div>
+                <div className="w-[40px] scale-130 mx-auto sm:invisible visible mt-7 chef cursor-context-menu "><img className='drop-shadow-sm' src={logo} alt="" /></div>
+
+                <div className="block sm:hidden mt-10 text-sm text-center sig tt tracking-[0.2em] text-black select-none  uppercase">
+                    Designed with <span className="text-red-600 rt underline font-bold">UX&nbsp;|&nbsp;ARHAM</span>
+                </div>
         </div>
     )
 }
