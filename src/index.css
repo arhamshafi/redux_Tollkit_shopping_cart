@@ -3,6 +3,7 @@
 * {
   font-family: "Merriweather", serif;
   font-style: normal;
+
 }
 
 .meal_anime {
@@ -148,82 +149,133 @@
   text-shadow: .1px .1px 2px red;
 }
 
-.dotanime{
-  animation:dotanime 1s infinite;
+.dotanime {
+  animation: dotanime 1s infinite;
 }
-@keyframes dotanime{
-  from{
-    transform:scale(1);
+
+@keyframes dotanime {
+  from {
+    transform: scale(1);
     opacity: 1;
   }
-  to{
-    transform:scale(2.5);
+
+  to {
+    transform: scale(2.5);
     opacity: 0;
   }
 }
 
-.load{
+.load {
   animation: load 3s forwards ease-in-out;
 }
-@keyframes load{
-  0%{
-    transform: scale(2) translate(0 , 0);
+
+@keyframes load {
+  0% {
+    transform: scale(2) translate(0, 0);
   }
-  70%{
-    transform: scale(1) translate(0 , 0);
+
+  70% {
+    transform: scale(1) translate(0, 0);
   }
-  100%{
-    transform: scale(1) translate(-10% , 0);
+
+  100% {
+    transform: scale(1) translate(-10%, 0);
   }
 }
-.text_anime{
+
+.text_anime {
   color: red;
+  opacity: 0;
   text-shadow: .1px .1px 2px red;
   animation: text_up 3s forwards ease-in;
 }
-@keyframes text_up{
-  0%{
-    transform: translate(-100px , -200px);
+
+@keyframes text_up {
+  0% {
+    transform: translate(-100px, -50px);
     opacity: 0;
   }
-  50%{
-    transform: translate(-100px , -200px);
+
+  50% {
+    transform: translate(-100px, -50px);
     opacity: 0;
   }
-  70%{
-    transform: translate(-100px , 0px);
+
+  70% {
+    transform: translate(-100px, 0px);
     opacity: 1;
   }
-  100%{
+
+  100% {
     opacity: 1;
-    transform: translate(-50px , 0);
+    transform: translate(-50px, 0);
   }
 }
-.text_anime2{
+
+.text_anime2 {
   color: black;
   text-shadow: .1px .1px 2px black;
   animation: text_down 3s forwards ease-in;
+  opacity: 0;
 }
-@keyframes text_down{
-  0%{
-    transform: translate(-100px , 200px);
+
+@keyframes text_down {
+  0% {
+    transform: translate(-100px, 50px);
     opacity: 0;
   }
-  50%{
-    transform: translate(-100px , 200px);
+
+  50% {
+    transform: translate(-100px, 50px);
     opacity: 0;
   }
-  70%{
-    transform: translate(-100px , 0px);
+
+  70% {
+    transform: translate(-100px, 0px);
     opacity: 1;
   }
-  100%{
+
+  100% {
     opacity: 1;
-    transform: translate(-50px , 0);
+    transform: translate(-50px, 0);
   }
 }
 
+.delay1 {
+  animation-delay: .1s;
+}
 
+.delay2 {
+  animation-delay: .2s;
+}
+
+.delay3 {
+  animation-delay: .3s;
+}
+
+.delay4 {
+  animation-delay: .4s;
+}
+
+.delay5 {
+  animation-delay: .5s;
+}
+
+.delay6 {
+  animation-delay: .6s;
+}
+
+.delay7 {
+  animation-delay: .7s;
+}
+
+.delay8 {
+  animation-delay: .8s;
+}
+
+.delay9 {
+  animation-delay: .9s;
+}
 
 
 

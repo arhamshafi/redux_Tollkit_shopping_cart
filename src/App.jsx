@@ -25,27 +25,24 @@ function App() {
     return () => clearTimeout(timer)
   }, [])
 
-  return  (
+  return (
     <div className='w-full py-3 bg-white select-none '>
-      
-          <div className={`w-full h-screen fixed bg-white z-50 top-0  left-0 flex justify-center items-center transition-all duration-200 ease-linear ${loader ? "visible opacity-100" : "invisible opacity-0"} `}>
-             <img className='w-[20%] load ' src={logo} alt="" /> 
-              <div className='text-3xl text-red-500 rt hidden sm:flex justify-center items-center gap-1'>
-                <p className='text_anime font-bold text-3xl'>A</p>
-                <p className='text_anime2 font-bold text-3xl'>R</p>
-                <p className='text_anime font-bold text-3xl'></p>
-                <p className='text_anime2 font-bold text-3xl'></p>
-                <p className='text_anime font-bold text-3xl'>|</p>
-                <p className='text_anime2 font-bold text-3xl'></p>
-                <p className='text_anime font-bold text-3xl'>P</p>
-                <p className='text_anime2 font-bold text-3xl'>R</p>
-                <p className='text_anime font-bold text-3xl'>E</p>
-                <p className='text_anime2 font-bold text-3xl'>S</p>
-                <p className='text_anime font-bold text-3xl'>E</p>
-                <p className='text_anime2 font-bold text-3xl'>N</p>
-                <p className='text_anime font-bold text-3xl'>T</p>
-              </div>
-             </div>
+
+      <div className={`w-full h-screen fixed bg-white z-50 top-0  left-0 flex justify-center items-center transition-all duration-200 ease-linear ${loader ? "visible opacity-100" : "invisible opacity-0"} `}>
+        <img className='w-[20%] load ' src={logo} alt="" />
+        <div className='text-3xl text-red-500 rt hidden sm:flex justify-center items-center gap-1'>
+          <p className='text_anime font-bold  text-3xl'>A</p>
+          <p className='text_anime2 delay1 font-bold text-3xl'>R</p>
+          <p className='text_anime delay2 font-bold text-3xl ml-2'>|</p>
+          <p className='text_anime2 delay3 font-bold text-3xl ml-2'>P</p>
+          <p className='text_anime delay4 font-bold text-3xl'>R</p>
+          <p className='text_anime2 delay5 font-bold text-3xl'>E</p>
+          <p className='text_anime delay6 font-bold text-3xl'>S</p>
+          <p className='text_anime2 delay7 font-bold text-3xl'>E</p>
+          <p className='text_anime delay8 font-bold text-3xl'>N</p>
+          <p className='text_anime2 delay9 font-bold text-3xl'>T</p>
+        </div>
+      </div>
 
       <Header />
 
@@ -91,7 +88,7 @@ function App() {
 
               </div>
 
-              <div className='w-full h-[350px] py-1 px-0 sm:px-3 crt_scroll mt-10 text-white'>
+              <div className='w-full h-[370px] py-1 px-0 sm:px-3 crt_scroll mt-10 text-white'>
 
                 {cart.map((ele, idx) => {
                   return (
@@ -104,7 +101,7 @@ function App() {
                       </div>
                       <div className=' w-[240px] h-[80px] rounded-lg'>
                         <h1 className='text-white text-[12px] mt-2 font-bold'> {ele.name} </h1>
-                        <p className='text-green-500 text-sm mt-1'>$ {ele.price} </p>
+                        <p className='text-green-500 text-sm mt-1'>$ {ele.price} <span className='text-gray-300 text-[12px] ml-3'>( Per Each )</span> </p>
                         <div className='w-max flex justify-center items-center gap-2 mt-1'>
                           <Minus size={18} className='cursor-pointer text-white hover:text-red-400 active:scale-85 transition-all duration-75 ease-linear' onClick={() => dispatch(decr(ele))} />
                           <p className='text-yellow-300 text-sm sm:text-md '> {ele.quantity} </p>
@@ -125,7 +122,7 @@ function App() {
                         <div className='absolute w-full h-full bg-black/80 group-hover:bg-black/75 transition-all duration-100 ease-in flex px-5 justify-center flex-col'>
 
                           <h1 className='text-[12px] text-white font-bold'> {ele.name} </h1>
-                          <p className='mt-1 text-green-400'>$ {ele.price}</p>
+                          <p className='mt-1 text-green-400'>$ {ele.price} <span className='text-gray-300 text-[12px] ml-3'>( Per Each )</span> </p>
                           <div className='w-max flex justify-center items-center gap-2 mt-1'>
                             <Minus size={18} className='cursor-pointer text-white hover:text-red-400 active:scale-85 transition-all duration-75 ease-linear' onClick={() => dispatch(decr(ele))} />
                             <p className='text-yellow-300 text-sm sm:text-md '> {ele.quantity} </p>
@@ -139,7 +136,7 @@ function App() {
 
 
               </div>
-              <div className='w-full h-[70px] bg-red-700 red_boxsh rounded-2xl mt-8 flex px-5 justify-between items-center'>
+              <div className='w-full h-[70px] bg-red-700 red_boxsh rounded-2xl mt-9 flex px-5 justify-between items-center'>
                 <h1 className='text-xl text-white font-bold tracking-[1px]'>Total Bill :-</h1>
                 <p className='text-md text-yellow-400 '> {total_bill} $ </p>
               </div>
