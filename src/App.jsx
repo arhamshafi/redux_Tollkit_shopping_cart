@@ -14,16 +14,16 @@ function App() {
   let cart = useSelector((state) => state.cart.items)
   let total_bill = useSelector((state) => state.cart.total_amount)
   let dispatch = useDispatch()
-  let [loader, setloader] = useState(true)
+  // let [loader, setloader] = useState(true)
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    let timer = setTimeout(() => {
-      setloader(false)
-    }, 2500);
+  //   let timer = setTimeout(() => {
+  //     setloader(false)
+  //   }, 2500);
 
-    return () => clearTimeout(timer)
-  }, [])
+  //   return () => clearTimeout(timer)
+  // }, [])
 
   return (
     <div className='w-full py-3 bg-white select-none '>
