@@ -20,7 +20,7 @@ function App() {
 
     let timer = setTimeout(() => {
       setloader(false)
-    }, 3000);
+    }, 2500);
 
     return () => clearTimeout(timer)
   }, [])
