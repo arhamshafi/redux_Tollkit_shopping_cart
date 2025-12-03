@@ -28,7 +28,7 @@ function App() {
   return (
     <div className='w-full py-3 bg-white select-none '>
 
-      <div className={`w-full h-screen fixed bg-white z-50 top-0  left-0 flex justify-center items-center transition-all duration-200 ease-linear ${loader ? "visible opacity-100" : "invisible opacity-0"} `}>
+      {/* <div className={`w-full h-screen fixed bg-white z-50 top-0  left-0 flex justify-center items-center transition-all duration-200 ease-linear ${loader ? "visible opacity-100" : "invisible opacity-0"} `}>
         <img className='w-[20%] load ' src={logo} alt="" />
         <div className='text-3xl text-red-500 rt hidden sm:flex justify-center items-center gap-1'>
           <p className='text_anime font-bold  text-3xl'>A</p>
@@ -42,7 +42,7 @@ function App() {
           <p className='text_anime delay8 font-bold text-3xl'>N</p>
           <p className='text_anime2 delay9 font-bold text-3xl'>T</p>
         </div>
-      </div>
+      </div> */}
 
       <Header />
 
